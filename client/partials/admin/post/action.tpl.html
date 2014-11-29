@@ -1,0 +1,11 @@
+<div class="action flex-row end full-row">
+    <div class="tags-wrapper item">
+        <a class="tag nudl" ng-repeat="tag in postActionCtrl.tags"><span>{{tag}}</span>&nbsp;&nbsp;<i class="fa fa-times remove" ng-click="postActionCtrl.removeTag($index)"></i></a>
+    </div>
+    <div class="action tag-input-wrapper plr">
+        <input type="text" class="bare-input tag-input text-primary" ng-model="postActionCtrl.tag" placeholder="new tag" ng-if="postActionCtrl.status.addingTag">
+        <a href="" class="item nudl" ng-click="postActionCtrl.addTag()" tooltip="add tags" tooltip-placement="left">&nbsp;&nbsp;<i class="fa" ng-class="{'fa-check': postActionCtrl.tag,'fa-tag': !postActionCtrl.tag}"></i>&nbsp;&nbsp;</a>
+    </div>
+    <a href="" class="item nudl" tooltip="save post" tooltip-placement="left" ng-click="postActionCtrl.save()">&nbsp;&nbsp;<i class="fa fa-save"></i>&nbsp;&nbsp;</a>
+    <a href="" class="item nudl" ng-click="postActionCtrl.preview()" tooltip="preview" tooltip-placement="left">&nbsp;&nbsp;<i class="fa fa-eye"></i>&nbsp;&nbsp;</a>
+</div>

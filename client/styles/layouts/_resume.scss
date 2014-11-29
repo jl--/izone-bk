@@ -1,0 +1,240 @@
+body{
+    color: white;
+    background-image: linear-gradient(to left, rgba(153, 93, 179, 0.6) 1%, rgba(44, 155, 219, 0.6));
+    background-color: darken($lovely-green,8%);
+}
+.parallax{
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    @extend .container-clip;
+}
+.brand{
+    font-size: 120px;
+}
+
+
+/* preface
+========================================*/
+.preface{
+    background-color: $lovely-green;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+@media only screen and (min-width:960px){
+    .preface{
+        background-image: url('../images/mac.png');
+    }
+    .contact{
+        background-image: url('../images/about.png');
+    }
+}
+.keyboard{
+    @extend .absolute;
+    width: 360px;
+    display: block;
+    transition: transform 0.3s ease;
+    bottom: 100px;
+    left: 100px;
+    &.ani{
+        transform: perspective(1000px) rotateX(20deg) rotateY(10deg) rotateZ(20deg);
+    }
+}
+@media only screen and (min-width: 520px){
+    .keyboard{
+        content: url('../images/keyboard.png');
+    }
+}
+@media screen and (max-width: 519px){
+    .keyboard{
+        display: none;
+    }
+}
+.browser{
+    width: 240px;
+}
+.brief{
+    @extend .absolute;
+    opacity: 0;
+    right: 46px;
+    bottom: 100px;
+    h1{
+        font-size: 48px;
+    }
+    p{
+        font-size: 26px;
+    }
+    &.bounceInRight{
+        opacity: 1;
+    }
+}
+@media screen and (max-width: 520px){
+    .brief{
+        right: 0px;
+        width: 100%;
+    }
+}
+
+
+
+/* about
+=============================*/
+.about{
+    background-color: darken($lovely-green,6%);
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.about-details{
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    &.bounceIn{
+        opacity: 1;
+    }
+}
+.avatar{
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+.signature{
+    max-width: 600px;
+}
+
+/* skills
+================================*/
+.skills{
+    background-color: darken($lovely-green,3%);
+}
+.skill-items{
+    diaplay: none;
+}
+.skill{
+    @extend .flex-row;
+    @extend .ptb-lg;
+    @extend .plr-extra;
+    @extend .relative;
+    @for $i from 1 through 8{
+        &:nth-child(#{$i}){
+           background-color: darken($lovely-green, $i * 2%); 
+        }
+    }
+}
+.skill-name{
+    @extend .relative;
+    @extend .mr-lg;
+    width: 180px;
+    text-align:center;
+    padding: 20px;
+    font-size: 34px;
+    font-weight: bolder;
+    &::before{
+        @extend .absolute;
+        @extend .left;
+        content: "{";
+    }
+    &::after{
+        @extend .absolute;
+        @extend .right;
+        content: "}";
+    }
+}
+.skill-state{
+    @extend .absolute;
+    @extend .top;
+    @extend .right;
+    color: yellow;
+    .fa-star{
+        top: -4px;
+    }
+}
+@media screen and (max-width: 760px){
+    .skills{
+        flex-direction: column-reverse;
+        & > div{
+            width: 100%;
+        }
+        .skills-intro{
+            padding-left: 6px;
+            padding-right: 6px;
+        }
+    }
+}
+@media screen and (max-width: 500px){
+    .skill{
+        flex-direction: column;
+    }
+}
+
+
+/* portfolio
+==========================================*/
+.portfolio{
+    min-height: 100%;
+    background-color: darken($lovely-green,8%);
+}
+.portfolio-label{
+    background-color: darken($lovely-green,16%);
+}
+.portfolio-items{
+    
+}
+.portfolio-item{
+    @include size(310px,220px);
+    @extend .container-clip;
+    @extend .relative;
+    @extend .pointer;
+    @extend .mlr-extra;
+    @extend .mtb-extra;
+    border-radius: 4px;
+    border: 2px solid darken($lovely-green,4%);
+    &:hover{
+        .portfolio-item-metas{
+            opacity: 1;
+            transform: scale(1);
+        }
+        img{
+
+        }
+    }
+    img{
+        width: 100%;
+    }
+}
+.portfolio-item-metas{
+    @extend .absolute;
+    @extend .cover;
+    @extend .top;
+    @extend .left;
+    @extend .container-clip;
+    @extend .flex-column;
+    @extend .center;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    background-color: rgba(0,0,0,0.4);
+    transform: scale(0.2);
+}
+.portfolio-item-link{
+    @extend .nudl;
+    color: $lovely-green;
+    border: 1px solid;
+    border-radius: 16px;
+    padding: 4px 30px;
+    &:hover{
+        color: darken($lovely-green,8%);
+    }
+}
+
+/* contact
+=============================*/
+.contact{
+    background-color: $lovely-green;
+}
+.social-links{
+    margin-top: 100px;
+}
+.social-link{
+    margin: 20px;
+}
+.site-footer{
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border: none;
+    background-color: darken($lovely-green,8%);
+}

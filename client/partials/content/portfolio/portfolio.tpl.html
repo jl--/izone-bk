@@ -1,0 +1,51 @@
+<div class="portfolio-page cover container-clip-x container-auto-y">
+    
+    <div class="full-row relative container-clip" ng-if="portfolioCtrl.portfolio.designs.length >0">
+        <div class="portfolio-group-heading flex-column center">
+            <div class="text-center text-primary portfolio-group-title flex-row center first"><span>User Interface</span><i class="fa fa-paint-brush mlr-lg text-primary"></i><span>Icon Design</span></div>
+            <div class="portfolio-group-description flex-row center text-white">
+                <span class="label label-primary ptb plr">IOS</span>
+                <span class="label label-primary ml-lg ptb plr">Web</span>
+                <span class="label label-primary ml-lg ptb plr">Wallpaper</span>
+                <span class="label label-primary ml-lg ptb plr">......</span>
+            </div>
+        </div>
+        <div class="full-row flex-row start portfolio-items-container">
+            <div class="portfolio-item relative" ng-repeat="item in portfolioCtrl.portfolio.designs" ng-click="portfolioCtrl.viewItem(item)">
+                <img ng-src="{{item.img}}" alt="" class="portfolio-img" ng-click="portfolioCtrl.viewItem(item)">
+                <div class="portfolio-item-metas cover absolute top left flex-column center">
+                    <h4 class="portfolio-item-title">{{item.title}}</h4>
+                    <a ng-href="{{item.link}}" class="portfolio-item-link"><i class="fa fa-arrow-right"></i></a>
+                    <h4 class="portfolio-item-description">{{item.description}}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="full-row relative container-clip" ng-if="portfolioCtrl.portfolio.projects.length >0">
+        <div class="portfolio-group-heading flex-column center">
+            <div class="text-center text-primary portfolio-group-title"><span class="mr-lg">{</span>Projects<span class="ml-lg">}</span></div>
+            <div class="portfolio-group-description flex-row center text-white">
+                <span class="label label-primary ptb">Angularjs</span>
+                <span class="label label-primary ptb ml-lg">Nodejs</span>
+                <span class="label label-primary ptb ml-lg">Php</span>
+                <span class="label label-primary ptb ml-lg">Android</span>
+                <span class="label label-primary ptb ml-lg">......</span>
+            </div>
+        </div>
+        <div class="full-row flex-row start portfolio-items-container">
+            <div class="portfolio-item relative" ng-repeat="item in portfolioCtrl.portfolio.projects" ng-click="portfolioCtrl.viewItem(item)">
+                <img ng-src="{{item.img}}" alt="" class="portfolio-img" ng-click="portfolioCtrl.viewItem(item)">
+                <div class="portfolio-item-metas cover absolute top left flex-column center">
+                    <h4 class="portfolio-item-title">{{item.title}}</h4>
+                    <a ng-href="{{item.link}}" class="portfolio-item-link"><i class="fa fa-arrow-right"></i></a>
+                    <h4 class="portfolio-item-description">{{item.description}}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbox cover absolute top left" ng-class="{bounceFarIn: portfolioCtrl.status.viewingItem}" ng-click="portfolioCtrl.status.viewingItem=false;">
+        <div class="portfolio cover container-auto">
+            <img class="portfolio-img" ng-src="{{portfolioCtrl.item.img}}" alt="">
+        </div>
+    </div>
+</div>
